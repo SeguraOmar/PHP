@@ -2,6 +2,7 @@
 
 
 require_once 'Character.php';
+require_once 'index.php';
 
 
 class Hero extends Character {
@@ -71,6 +72,7 @@ return $this->_shieldName;
  }
 
  public function getInfos() {
+    echo "Un héros vient d'être crée." . '<br>';
     echo 'Points de vie : ' . $this->getHealth() . '<br>';
     echo 'Points de rage : ' . $this->getRage() . '<br>';
     echo 'Nom : ' . $this->getName() . '<br>';
@@ -80,24 +82,10 @@ return $this->_shieldName;
     echo 'Valeur du bouclier : ' . $this->getShieldValue() . '<br>';
 }
 
+public function beAttacked($damage) {
 
-public function attack($target)
-       {
-           // Calculer les dégâts infligés en prenant en compte la rage et le bouclier
-           $Damage = max(0, $this->getWeaponDamage() - $target->getShieldValue());
-           // Utilise max(0, ...) pour éviter les dégâts négatifs, en soustrayant la valeur du bouclier
-
-           // Réduire la rage du héros après l'attaque
-           $this->setRage(max(0, $this->getRage() - 20));
-           // Utilise max(0, ...) pour éviter un niveau de rage négatif, en soustrayant 20 points de rage
-
-           // Infliger les dégâts à la cible
-           $target->takeDamage($Damage);
-
-           // Afficher le résultat de l'attaque
-           echo $this->getName() . " attaque " . $target->getName() . " et inflige " . $Damage . " points de dégâts!<br>";
-           // Affiche un message indiquant qui attaque qui et le nombre de points de dégâts infligés
-       }
+    $this->setHealth(($this->getHealth + $this->getShieldValue()) - $damage);
+}
 
 }
 ?>

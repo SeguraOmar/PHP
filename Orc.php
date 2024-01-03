@@ -9,6 +9,7 @@ Class Orc extends Character {
 
        private $_type;
        private $_damage;
+       private $_name;
 
 
        public function getType () {
@@ -28,24 +29,29 @@ Class Orc extends Character {
         $this->_damage = $damage;
        }
 
-      public function __construct($health,$rage,$type,$damage) {
+       public function getName () {
+        return $this->_name;
+       }
+
+       public function setName (string $name) {
+        $this->_name = $name;
+       }
+
+      public function __construct($name,$health,$rage,$type) {
         parent::__construct($health, $rage); 
         $this->setType($type);
-        $this->setDamage($damage);
-
+        $this->setName($name);
+        echo 'Un orc est apparu' . "<br>";
+        echo "Nom : " . $this->getName() . '<br>';
         echo 'Points de vie : ' . $this->getHealth() . '<br>';
-        echo "Dégats :" . $this->getDamage() . "<br>" ;
         echo "Type : " . $this->getType() . "<br>";
-        echo 'Points de rage : ' . $this->getRage();
+        echo 'Points de rage : ' . $this->getRage() . '<br>';
 
-
-        public function attack() {
-            $randomDamage = rand(600, 800);
-            $this->setDamage($randomDamage);
-            echo 'attaque dégats infligé à : ' . $this->getDamage() . '<br>';
-        }
       }
 
+      public function attack() {
+        $this->setDamage(rand(600,800));
+      }
       
 }
 

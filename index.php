@@ -1,11 +1,13 @@
 <?php 
-
+require_once 'Character.php';
 require_once 'Hero.php';
-$hero = new Hero(100,60,'Link','Master Sword',100,'Bouclier Hylien', 50); 
-$hero2 = new Hero(95,72,'Link','Master Sword',110,'Bouclier Hylien', 50); 
-
 require_once 'Orc.php';
-$Orc = new Orc(140,110,'Feu',100);
+
+$hero = new Hero(1000,0,'Paladin','Epée à une main',250,'Rempart de scarabée doré', 450); 
+
+
+$Orc = new Orc('Guldar',2000,0,'Feu');
+
 
 ?>
 
@@ -18,12 +20,13 @@ $Orc = new Orc(140,110,'Feu',100);
 </head>
 <body>
     
-<p>Héros</p>
+
 
 <?php 
 $hero->getInfos();
-$hero2->getInfos();
-$orc->attack();
+echo $hero->getName() .  " Attaque " . $Orc->getName();
+
 ?>
+
 </body>
 </html>
