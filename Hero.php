@@ -84,7 +84,7 @@ return $this->_shieldName;
 
 public function beAttacked($damage) {
 
-    $this->setHealth(($this->getHealth + $this->getShieldValue()) - $damage);
+    $this->setHealth(($this->getHealth() + $this->getShieldValue()) - $damage);
 }
 
 }

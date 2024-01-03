@@ -25,9 +25,13 @@ $Orc = new Orc('Guldar',2000,0,'Feu');
 <?php 
 $hero->getInfos();
 echo $hero->getName() .  " Attaque " . $Orc->getName() . " de " .  $hero->getWeaponDamage() . " dégâts " . "<br>";
- echo "Il reste " .  $Orc->getHealth() - $hero->getWeaponDamage() . " Points de vie à " . $Orc->getName(); 
+ echo "Il reste " .  $Orc->getHealth() - $hero->getWeaponDamage() . " Points de vie à " . $Orc->getName() . "<br>"; 
  
 
+ $Orc->attack();
+echo $Orc->getName() . " Attaque " . $hero->getName() . " de " . $Orc->getDamage() . " dégâts " . "<br>";
+$hero->beAttacked($Orc->getDamage());
+echo " Il reste " . $hero->getHealth() . " Points de vie à " . $hero->getName() . "<br>";
 
 ?>
 
