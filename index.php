@@ -1,7 +1,11 @@
 <?php 
 
 require_once 'Hero.php';
-$hero = new Hero(100,60,'Link','Master Sword',100,'Bouclier Hylien', 50); var_dump($hero);
+$hero = new Hero(100,60,'Link','Master Sword',100,'Bouclier Hylien', 50); 
+$hero2 = new Hero(95,72,'Link','Master Sword',110,'Bouclier Hylien', 50); 
+
+require_once 'Orc.php';
+$Orc = new Orc(140,110,'Feu',100);
 
 ?>
 
@@ -18,6 +22,8 @@ $hero = new Hero(100,60,'Link','Master Sword',100,'Bouclier Hylien', 50); var_du
 
 <?php 
 $hero->getInfos();
+$hero2->getInfos();
+$orc->attack();
 ?>
 </body>
 </html>
